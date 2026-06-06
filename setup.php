@@ -27,14 +27,6 @@
 <?php
 require_once __DIR__ . '/config/db.php';
 
-// TEMPORARY DEBUG — remove after fixing env vars
-echo '<pre style="background:#111;color:#0f0;padding:1rem;font-size:.8rem">';
-echo "=== \$_SERVER ===\n";
-foreach ($_SERVER as $k => $v) echo "$k = $v\n";
-echo "\n=== getenv() all ===\n";
-$allEnv = getenv();
-foreach ((array)$allEnv as $k => $v) echo "$k = $v\n";
-echo "</pre>";
 
 $steps   = [];
 $success = true;

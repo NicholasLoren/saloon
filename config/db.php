@@ -1,18 +1,11 @@
 <?php
-function _env(string $key): string {
-    if (($v = getenv($key)) !== false && $v !== '') return $v;
-    if (isset($_ENV[$key])    && $_ENV[$key]    !== '') return $_ENV[$key];
-    if (isset($_SERVER[$key]) && $_SERVER[$key] !== '') return $_SERVER[$key];
-    return '';
-}
-
-define('DB_HOST',    _env('DB_HOST'));
-define('DB_PORT',    _env('DB_PORT'));
-define('DB_USER',    _env('DB_USER'));
-define('DB_PASS',    _env('DB_PASS'));
-define('DB_NAME',    _env('DB_NAME'));
-define('BASE_URL',   _env('BASE_URL'));
-define('SALON_NAME', _env('SALON_NAME'));
+define('DB_HOST',    getenv('DB_HOST'));
+define('DB_PORT',    getenv('DB_PORT'));
+define('DB_USER',    getenv('DB_USERNAME'));
+define('DB_PASS',    getenv('DB_PASSWORD'));
+define('DB_NAME',    getenv('DB_NAME'));
+define('BASE_URL',   rtrim(getenv('BASE_URL') ?: getenv('WASMER_APP_URL'), '/'));
+define('SALON_NAME', getenv('SALON_NAME') ?: "Matilda's Salon & Spa");
 define('STORAGE_PATH', __DIR__ . '/../storage');
 
 // Allow setup.php to run without triggering this check
