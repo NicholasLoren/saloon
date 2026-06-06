@@ -25,15 +25,17 @@
   <p class="sub">Database initialisation &amp; seed data</p>
 
 <?php
+require_once __DIR__ . '/config/db.php';
+
 $steps   = [];
 $success = true;
 
 // 1. Connect without DB
-$_host = getenv('DB_HOST');
-$_port = getenv('DB_PORT');
-$_user = getenv('DB_USER');
-$_pass = getenv('DB_PASS');
-$_name = getenv('DB_NAME');
+$_host = DB_HOST;
+$_port = DB_PORT;
+$_user = DB_USER;
+$_pass = DB_PASS;
+$_name = DB_NAME;
 
 try {
     $pdo0 = new PDO(
