@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark background pill -->
+  <rect width="64" height="64" rx="14" fill="#0d0d1a"/>
+  <!-- Gold gradient definition -->
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a8893c"/>
+      <stop offset="100%" stop-color="#e8c97a"/>
+    </linearGradient>
+  </defs>
+  <!-- Scissors blades -->
+  <!-- Top-left blade -->
+  <line x1="16" y1="16" x2="38" y2="38" stroke="url(#g)" stroke-width="5" stroke-linecap="round"/>
+  <!-- Bottom-left blade -->
+  <line x1="16" y1="48" x2="38" y2="26" stroke="url(#g)" stroke-width="5" stroke-linecap="round"/>
+  <!-- Pivot circle -->
+  <circle cx="36" cy="32" r="4.5" fill="#0d0d1a" stroke="url(#g)" stroke-width="2.5"/>
+  <!-- Handle rings -->
+  <circle cx="14" cy="13" r="6" fill="none" stroke="url(#g)" stroke-width="3"/>
+  <circle cx="14" cy="51" r="6" fill="none" stroke="url(#g)" stroke-width="3"/>
+  <!-- Right extension (open blades) -->
+  <line x1="38" y1="38" x2="52" y2="46" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="38" y1="26" x2="52" y2="18" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
+</svg>
