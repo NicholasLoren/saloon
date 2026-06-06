@@ -29,10 +29,16 @@ $steps   = [];
 $success = true;
 
 // 1. Connect without DB
+$_host = getenv('DB_HOST');
+$_port = getenv('DB_PORT');
+$_user = getenv('DB_USER');
+$_pass = getenv('DB_PASS');
+$_name = getenv('DB_NAME');
+
 try {
     $pdo0 = new PDO(
-        "mysql:host=db.fr-pari1.bengt.wasmernet.com;port=10272;charset=utf8mb4",
-        'user_554231d9', 'pw_e12dfc1d',
+        "mysql:host={$_host};port={$_port};charset=utf8mb4",
+        $_user, $_pass,
         [PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]
     );
     $steps[] = ['ok', 'Connected to MySQL server.'];
@@ -43,8 +49,8 @@ try {
 
 if ($success) {
     // 2. Create DB
-    $pdo0->exec("CREATE DATABASE IF NOT EXISTS db_7b6b0389 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
-    $pdo0->exec("USE db_7b6b0389");
+    $pdo0->exec("CREATE DATABASE IF NOT EXISTS `{$_name}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+    $pdo0->exec("USE `{$_name}`");
     $steps[] = ['ok', 'Database <code>db_7b6b0389</code> ready.'];
 
     // 3. Create tables
@@ -190,8 +196,8 @@ Staff : sarah@matildassalon.com  /  staff123</pre>
     </p>
 
     <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem">
-      <a href="http://localhost:5000/" class="btn">&#127968; Go to Website</a>
-      <a href="http://localhost:5000/dashboard/login" class="btn" style="background:rgba(255,255,255,.1);color:#e8c97a">&#9881; Go to Dashboard</a>
+      <a href="<?= htmlspecialchars(getenv('BASE_URL') ?: '') ?>/" class="btn">&#127968; Go to Website</a>
+      <a href="<?= htmlspecialchars(getenv('BASE_URL') ?: '') ?>/dashboard/login" class="btn" style="background:rgba(255,255,255,.1);color:#e8c97a">&#9881; Go to Dashboard</a>
     </div>
   <?php else: ?>
     <p style="margin-top:1rem;color:#fca5a5;font-size:.875rem">

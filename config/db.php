@@ -1,11 +1,11 @@
 <?php
-define('DB_HOST',    getenv('DB_HOST')    ?: 'localhost');
-define('DB_PORT',    getenv('DB_PORT')    ?: '3306');
-define('DB_USER',    getenv('DB_USER')    ?: 'root');
-define('DB_PASS',    getenv('DB_PASS')    ?: '');
-define('DB_NAME',    getenv('DB_NAME')    ?: 'saloon_online');
-define('BASE_URL',   getenv('BASE_URL')   ?: 'http://localhost:5000');
-define('SALON_NAME', getenv('SALON_NAME') ?: "Matilda's Salon & Spa");
+define('DB_HOST',    getenv('DB_HOST'));
+define('DB_PORT',    getenv('DB_PORT'));
+define('DB_USER',    getenv('DB_USER'));
+define('DB_PASS',    getenv('DB_PASS'));
+define('DB_NAME',    getenv('DB_NAME'));
+define('BASE_URL',   getenv('BASE_URL'));
+define('SALON_NAME', getenv('SALON_NAME'));
 define('STORAGE_PATH', __DIR__ . '/../storage');
 
 // Allow setup.php to run without triggering this check
